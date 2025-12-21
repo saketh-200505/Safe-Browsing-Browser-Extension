@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Disposable Tools</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="light-ui">
+  <div class="popup-container" id="popup-root">
+
+    <!-- ============================== -->
+    <!--           HOME PAGE            -->
+    <!-- ============================== -->
+    <div id="page-home" data-page="home">
+      <header class="header">
+        <div class="header-title">Disposable Tools</div>
+        <div class="header-sub">Sandbox • Link Scanner • Stats • Email</div>
+      </header>
+
+      <!-- Input Sanitizer -->
+      <section class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Input Sanitizer</div>
+          <div class="card-desc">Monitors & sanitizes malicious input.</div>
+        </div>
+        <div class="card-action">
+          <label class="toggle">
+            <input id="toggle" type="checkbox">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Sandbox Viewer -->
+      <section class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Sandbox Viewer</div>
+          <div class="card-desc">Open websites in script-free local sandbox.</div>
+        </div>
+        <div class="card-action">
+          <button id="openSandbox" class="btn primary">Start</button>
+        </div>
+      </section>
+
+      <!-- File Sandbox Viewer -->
+      <section class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 00-2 2v16c0 1.1.9 2 2 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">File Sandbox Viewer</div>
+          <div class="card-desc">Upload & open files securely in local sandbox.</div>
+
+          <div style="margin-top:10px;">
+            <input type="file" id="fileSandboxInput" />
+            <button id="fileSandboxUpload" class="btn" style="margin-top:8px;">Upload & Open</button>
+          </div>
+
+          <div id="fileSandboxStatus" style="font-size:12px; color:#555; margin-top:8px;"></div>
+        </div>
+      </section>
+
+      <!-- Link Analyzer -->
+      <section class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+        </div>
+
+        <div class="card-body">
+          <div class="card-title">Disposable Link Opener</div>
+          <div class="card-desc">Analyze URL locally before opening.</div>
+
+          <div class="analyze-row" style="margin-top:10px;">
+            <input id="quick-url" class="url-input" type="text" placeholder="https://example.com" />
+            <button id="quick-analyze-btn" class="btn">Analyze</button>
+          </div>
+
+          <div class="analyze-result-row"
+               style="margin-top:10px; display:flex; align-items:center; justify-content:space-between;">
+            <div id="quick-result" class="quick-result hidden"></div>
+            <button id="full-details-btn" class="btn outline">Full Details →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 9h2v10H5zm4-4h2v14H9zm4 6h2v8h-2zm4-8h2v16h-2z"/></svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Sanitization Stats</div>
+          <div class="card-desc">Daily count & detected patterns.</div>
+        </div>
+        <div class="card-action">
+          <button id="openStats" class="btn">Open</button>
+        </div>
+      </section>
+
+      <!-- Email -->
+      <section class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Disposable Email</div>
+          <div class="card-desc">Temporary inbox inside sandbox.</div>
+        </div>
+        <div class="card-action">
+          <button id="openEmail" class="btn">Inbox</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================== -->
+    <!--         STATS PAGE             -->
+    <!-- ============================== -->
+    <div id="page-stats" data-page="stats" hidden>
+      <div class="details-header">
+        <button id="stats-back" class="btn outline">&lt; Back</button>
+        <div class="details-title">Sanitization Stats</div>
+      </div>
+
+      <div class="details-body">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div id="totalToday" style="font-weight:700">Loading…</div>
+              <div class="small" style="color:var(--text-sub);margin-top:4px;">Daily detection count + top patterns</div>
+            </div>
+            <div><button id="stats-reset" class="btn outline">Reset Today</button></div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <canvas id="stats-chart" width="640" height="200" style="width:100%;height:150px;"></canvas>
+          </div>
+
+          <div id="topPatterns" style="margin-top:12px;color:var(--text-sub);font-size:13px;">Top patterns: loading…</div>
+        </div>
+
+        <div class="card" style="margin-top:10px;">
+          <h3>Last 7 days</h3>
+          <div id="last7list" style="font-size:13px;color:var(--text-sub)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--         DETAILS PAGE           -->
+    <!-- ============================== -->
+    <div id="page-details" data-page="details" hidden>
+      <div class="details-header">
+        <button id="details-back" class="btn outline">&lt; Back</button>
+        <div class="details-title">Full URL Analysis</div>
+      </div>
+
+      <div class="details-body">
+        <section class="card">
+          <div class="overview-left">
+            <div id="risk-pill" class="risk-pill">—</div>
+            <div id="score" class="score-large">—</div>
+          </div>
+          <div class="overview-right">
+            <div id="recommendation" class="rec">—</div>
+            <div id="domain" class="domain">—</div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Indicators</h3>
+          <ul id="indicators-list" class="indicators"></ul>
+        </section>
+
+        <section class="card">
+          <h3>Encoded Segments</h3>
+          <div id="encoded-list"></div>
+        </section>
+
+        <section class="card">
+          <h3>URL Breakdown</h3>
+          <div id="breakdown"></div>
+        </section>
+
+        <section class="card">
+          <h3>Raw URL</h3>
+          <pre id="raw-url" class="raw"></pre>
+        </section>
+
+        <section class="card" style="display:flex; gap:10px; justify-content:flex-end;">
+          <button id="open-sandbox" class="btn primary">Open in Sandbox</button>
+          <button id="copy-report" class="btn">Copy Report</button>
+        </section>
+      </div>
+    </div>
+
+    <!-- ============================== -->
+    <!--          EMAIL PAGE            -->
+    <!-- ============================== -->
+    <div id="page-email" data-page="email" hidden>
+      <div class="details-header">
+        <button id="email-back" class="btn outline">&lt; Back</button>
+        <div class="details-title">Disposable Email</div>
+      </div>
+
+      <div class="details-body">
+        <div class="card">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div id="email-address" style="font-weight:700; word-break:break-all;">Loading…</div>
+                <button id="copy-email" class="btn outline">Copy</button>
+                <button id="refresh-email" class="btn">Refresh</button>
+              </div>
+              <div class="small" style="color:var(--text-sub);margin-top:6px;">Active temporary email</div>
+            </div>
+
+            <div>
+              <button id="regen-email" class="btn">Regenerate</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="inbox-list" class="card" style="display:block; padding:8px;">
+          <div id="inbox-loading" style="color:var(--text-sub)">Loading messages…</div>
+          <div id="inbox-items"></div>
+        </div>
+
+        <div id="email-message" class="card hidden" style="margin-top:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div id="msg-from" style="font-weight:700"></div>
+              <div id="msg-sub" class="small" style="color:var(--text-sub)"></div>
+            </div>
+            <div>
+              <button id="msg-back" class="btn outline">Back</button>
+            </div>
+          </div>
+
+          <div id="msg-body" style="margin-top:10px; white-space:pre-wrap; word-break:break-word;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="chart.min.js"></script>
+  <script src="analyzer.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+/* ===================================== */
+/*   SquareX-Inspired UI — FINAL CSS     */
+/* ===================================== */
+
+:root {
+  --bg: #f7f8fa;
+  --card-bg: #ffffff;
+  --border: #e3e5e8;
+  --text-main: #1b1f24;
+  --text-sub: #6a7280;
+
+  --btn-primary: #2563eb;
+  --btn-primary-hover: #1e4ecb;
+
+  --btn-default: #f1f3f5;
+  --btn-default-hover: #e2e5e8;
+
+  --radius: 14px;
+  --shadow: 0 3px 10px rgba(0,0,0,0.08);
+
+  --font: "Inter", "Segoe UI", system-ui;
+}
+
+body.light-ui {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--text-main);
+}
+
+.popup-container {
+  width: 500px;
+  height: 620px;
+  overflow: hidden;
+  padding: 16px 14px;
+}
+
+/* --------------------------- */
+/* HEADER */
+/* --------------------------- */
+
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header-sub {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-top: 3px;
+}
+
+/* ========================== */
+/*      CARD COMPONENT        */
+/* ========================== */
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  transition: 0.18s ease;
+  box-shadow: var(--shadow);
+}
+
+.card-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: #2563eb;
+}
+
+.card-body {
+  flex-grow: 1;
+  padding-right: 6px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card-desc {
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-top: 3px;
+}
+
+/* --------------------------- */
+/* BUTTONS */
+/* --------------------------- */
+
+.btn {
+  border: none;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.18s;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: var(--btn-primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--btn-primary-hover);
+}
+
+.btn.outline {
+  background: var(--btn-default);
+}
+
+.btn.outline:hover {
+  background: var(--btn-default-hover);
+}
+
+/* URL INPUT */
+.url-input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  width: 100%;
+}
+
+.analyze-row {
+  display: flex;
+  gap: 8px;
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Quick result */
+.quick-result {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===================================== */
+/*            PAGE SWITCHING             */
+/* ===================================== */
+
+#page-home {
+  display: block;
+}
+
+#page-details,
+#page-stats,
+#page-email {
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 20px;
+}
+
+/* HEADER inside internal pages */
+.details-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.details-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Scrollable body */
+.details-body {
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* ========================== */
+/*   TOGGLE SWITCH (RESTORED) */
+/* ========================== */
+
+.toggle {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  display: inline-block;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: #c7ccd1;
+  border-radius: 26px;
+  transition: 0.25s;
+}
+
+.toggle-slider:before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 2px;
+  left: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.25s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.toggle input:checked + .toggle-slider {
+  background: var(--btn-primary);
+}
+
+.toggle input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+}
+
+/* ========================================== */
+/*          LINK ANALYZER DETAILS PAGE        */
+/* ========================================== */
+
+.overview-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.score-large {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.risk-pill {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.indicators,
+#encoded-list {
+  font-size: 13px;
+  padding-left: 10px;
+}
+
+.raw {
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ========================================== */
+/*                STATS PAGE                  */
+/* ========================================== */
+
+#stats-chart {
+  border-radius: 10px;
+}
+
+#last7list {
+  line-height: 1.4;
+}
+
+/* ========================================== */
+/*                EMAIL PAGE                  */
+/* ========================================== */
+
+/* Inbox List */
+#inbox-items div {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#inbox-items div:hover {
+  background: #eef2ff;
+}
+
+/* Message viewer */
+#email-message {
+  padding: 14px;
+}
+
+#msg-body {
+  background: #fafafa;
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+}

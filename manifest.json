@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Input Sanitizer",
+  "version": "1.3.3",
+  "description": "Monitors and sanitizes inputs against SQLi, XSS, OS command injection, and path traversal attacks. Includes Sandbox Viewer, File Viewer, Link Analyzer, Stats Dashboard, and Disposable Email tools.",
+  "icons": { "16": "icon.png" },
+
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab",
+    "http://127.0.0.1/*",
+    "http://192.168.1.118/*"
+  ],
+
+  "host_permissions": [
+    "<all_urls>",
+    "http://127.0.0.1:8080/*",
+    "http://localhost:8080/*",
+    "http://192.168.1.118:8080/*",
+    "http://192.168.*.*:8080/*",
+    "https://api.mail.tm/*"
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sandbox.html",
+        "sandbox.js",
+        "chart.umd.min.js",
+        "file_viewer.html",
+        "file_viewer.js",
+        "analyzer.js",
+        "popup.js",
+        "email.html",
+        "email.js",
+        "styles.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icon.png" }
+  },
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' http://127.0.0.1:8080 http://192.168.1.118:8080 http://localhost:8080 https://api.mail.tm;"
+  }
+}

@@ -1,0 +1,206 @@
+/* =============================== */
+/*  Base Layout and Typography     */
+/* =============================== */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 12px;
+  width: 260px;
+  background: #f7f8fa;
+}
+
+.container {
+  text-align: center;
+}
+
+h2 {
+  margin: 6px 0 10px 0;
+  font-size: 16px;
+  color: #1b1f24;
+}
+
+small {
+  color: #666;
+  display: block;
+  margin-top: 8px;
+}
+
+/* =============================== */
+/*  Toggle Switch Style            */
+/* =============================== */
+.switch {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 30px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.slider:before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  transition: transform .2s;
+}
+
+input:checked + .slider {
+  background: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+/* =============================== */
+/*  Status and Info Text           */
+/* =============================== */
+#status {
+  font-size: 12px;
+  color: #333;
+  margin: 6px 0;
+}
+
+.row {
+  margin-top: 8px;
+}
+
+/* =============================== */
+/*  Buttons                        */
+/* =============================== */
+button {
+  background: #f0f0f0;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #e3e3e3;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* =============================== */
+/*  Card Containers                */
+/* =============================== */
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 10px;
+}
+
+.small {
+  font-size: 13px;
+  color: #555;
+}
+
+/* =============================== */
+/*  Mail Inbox Section (Mail.tm)   */
+/* =============================== */
+#email-address {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 13px;
+  color: #2563eb;
+  margin-top: 6px;
+  word-break: break-all;
+}
+
+#inbox-loading {
+  color: #6b7280;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+#inbox-items {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 6px;
+}
+
+.mail-item {
+  padding: 10px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e3e5e8;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mail-item:hover {
+  background: #f9fafb;
+  transform: scale(1.01);
+}
+
+#email-message {
+  padding: 10px;
+  font-size: 13px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  color: #1e293b;
+}
+
+#msg-from,
+#msg-sub {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#msg-body {
+  font-size: 13px;
+  color: #374151;
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =============================== */
+/*  Scrollbar Styling              */
+/* =============================== */
+#inbox-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+#inbox-items::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+
+#inbox-items::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+#refresh-email {
+  background: #ffffff;
+  border: 1px solid #e3e5e8;
+  color: #333;
+}
+
+#refresh-email:hover {
+  background: #f3f4f6;
+}

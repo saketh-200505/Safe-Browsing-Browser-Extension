@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Sandbox File Viewer</title>
+  <style>
+    body { font-family: system-ui; background:#fafafa; margin:0; padding:20px; }
+    #status { font-size:14px; color:#555; }
+    #meta { margin:6px 0 10px; font-size:12px; color:#666; }
+    #frame { width:100%; height:80vh; border:1px solid #ccc; background:white; margin-top:10px; }
+    .toolbar { display:flex; gap:8px; margin:10px 0; }
+    .toolbar button {
+      padding:6px 10px; cursor:pointer; border:none;
+      background:#2563eb; color:white; border-radius:6px;
+    }
+    .toolbar button:hover { background:#1e40af; }
+  </style>
+</head>
+<body>
+  <h2>Sandbox File Viewer</h2>
+  <div id="status">Loading file...</div>
+  <div id="meta"></div>
+  <div class="toolbar">
+    <button id="downloadBtn">Download</button>
+    <button id="closeBtn">Close Tab</button>
+  </div>
+  <iframe id="frame" sandbox="allow-scripts allow-same-origin"></iframe>
+
+  <!-- ✅ External JS file -->
+  <script src="file_viewer.js"></script>
+</body>
+</html>
