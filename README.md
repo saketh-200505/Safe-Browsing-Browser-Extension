@@ -42,7 +42,7 @@ project-root/
 ### Step 1: Clone Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/saketh-200505/Safe-Browsing-Browser-Extension.git
 cd backend
 ```
 
@@ -78,7 +78,7 @@ playwright install chromium
 ### Step 1: Clone Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/saketh-200505/Safe-Browsing-Browser-Extension.git
 cd backend
 ```
 
