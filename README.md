@@ -29,9 +29,7 @@ project-root/
 ├── backend/          # Flask backend + sandbox
 │   ├── app.py
 │   ├── start.sh
-│   ├── requirements.txt
-│   ├── uploads/
-│   └── venv/
+│ 
 └── README.md
 ```
 
