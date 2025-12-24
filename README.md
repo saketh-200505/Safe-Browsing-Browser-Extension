@@ -126,10 +126,6 @@ Update the backend IP / base URL in the following files:
 
 Replace the existing backend address (example):
 
-```
-http://127.0.0.1:8080
-```
-
 With your backend VM IP:
 
 ```
