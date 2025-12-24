@@ -36,7 +36,7 @@ project-root/
 ---
 
 ## 3. Backend Installation
-
+Backend folder has backend files you need to move or clone only Backend Folder to your Backend VM (Ubuntu)
 ### Step 1: Clone Repository
 
 ```bash
@@ -73,44 +73,6 @@ playwright install chromium
 
 ## 4. Start Backend Server
 
-### Step 1: Clone Repository
-
-```bash
-git clone https://github.com/saketh-200505/Safe-Browsing-Browser-Extension.git
-cd backend
-```
-
-### Step 2: Create Virtual Environment
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Step 3: Install Python Libraries
-
-```bash
-pip install -r requirements.txt
-```
-
-Main libraries used:
-
-* Flask
-* Playwright
-* BeautifulSoup4
-* Requests
-* Werkzeug
-
-### Step 4: Install Playwright Browser
-
-```bash
-playwright install chromium
-```
-
----
-
-## 4. Start Backend Server
-
 Make startup script executable:
 
 ```bash
@@ -134,7 +96,7 @@ http://127.0.0.1:8080
 ---
 
 ## 5. Browser Extension Installation
-
+For extension you need to download extension folder only no need of backend folder select the extension folder 
 1. Open Chrome and go to:
 
    ```
